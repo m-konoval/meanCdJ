@@ -1,0 +1,15 @@
+.auth {
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-form {
+    width: 700px;
+    margin: 10px;
+
+    &__button {
+      margin-left: 15px;
+    }
+  }
+}
