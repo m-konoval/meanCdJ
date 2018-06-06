@@ -1,0 +1,15 @@
+.chat {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  margin: 15px auto 0;
+
+  &__item {
+    padding: 10px 20px;
+    border: 1px solid lightgoldenrodyellow;
+
+    & + & {
+      margin-top: 5px;
+    }
+  }
+}

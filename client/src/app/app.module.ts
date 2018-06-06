@@ -5,6 +5,8 @@ import {MatToolbarModule, MatCardModule, MatInputModule, MatFormFieldModule, Mat
 
 import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
+import {HttpClientModule} from '@angular/common/http';
+import {HttpModule} from "@angular/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import {AppRoutingModule} from "./app-routing.module";
@@ -23,13 +25,15 @@ import {ChatComponent} from "./chat/chat.component";
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpModule,
+    HttpClientModule,
     RouterModule,
     MatToolbarModule, MatCardModule, MatInputModule, MatFormFieldModule, MatButtonModule,
     AppRoutingModule,
     ChatRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {

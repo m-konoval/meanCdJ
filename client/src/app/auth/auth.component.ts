@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {FormControl} from "@angular/forms";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -7,12 +8,14 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent {
+  CHAT_URL = '/massages';
 
   public nameControl: FormControl = new FormControl();
-  constructor() {
-  }
 
-  public Login( e: any ) {
-    console.log(e);
+  constructor( private router: Router) {}
+
+  public login() {
+    localStorage.setItem('user_name', this.nameControl.value);
+    this.router.navigate([this.CHAT_URL]);
   }
 }

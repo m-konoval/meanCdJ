@@ -1,14 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { ChatRoutingModule } from './chat-routing.module';
-import { ChatComponent } from './chat.component';
+import {ChatRoutingModule} from './chat-routing.module';
+import {ChatService} from "./chat.service";
+import {ChatComponent} from './chat.component';
+import {MatCardModule} from '@angular/material'
 
 @NgModule({
   imports: [
     CommonModule,
-    ChatRoutingModule
+    ChatRoutingModule,
+    MatCardModule
+  ],
+  providers: [
+    ChatService
   ],
   declarations: [ChatComponent]
 })
-export class ChatModule { }
+export class ChatModule {
+}

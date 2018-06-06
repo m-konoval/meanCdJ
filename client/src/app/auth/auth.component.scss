@@ -5,11 +5,16 @@
   }
 
   &-form {
+    display: flex;
     width: 700px;
     margin: 10px;
 
     &__button {
-      margin-left: 15px;
+      background: cornflowerblue;
+      height: 40px;
+      padding-left: 25px;
+      padding-right: 25px;
+      margin-left: auto;
     }
   }
 }

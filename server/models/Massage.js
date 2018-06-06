@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 const MassageSchema = new mongoose.scale({
-    nickName: String,
+    userName: String,
     massage: String,
     created: {
         type: Date,
