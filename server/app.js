@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 
 require('long-stack-traces');
 
-var index = require('./routes/index');
+//var index = require('./routes/index');
 var massages = require('./routes/massages');
 
 var app = express();
@@ -19,14 +19,26 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-let conctionString = 'mongodb://localhost:27017/chat';
+let conctionString = 'mongodb://localhost:27017/massages';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(conctionString)
     .then(() => console.log('OK'))
     .catch((err) => console.log('Error: ' + err));
 
-app.use('/', index);
+app.all('/*', function (req, res, next) {
+   res.header('Access-Control-Allow-Origin', '*');
+   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+   res.header('Access-Control-Allow-Headers', 'Content-type,Accept');
+
+   if(req.method === 'OPTIONS') {
+       res.status(200).end();
+   } else {
+       next();
+   }
+});
+
+//app.use('/', index);
 app.use('/massages', massages);
 
 // catch 404 and forward to error handler
@@ -34,33 +46,10 @@ app.use(function (req, res, next) {
     next(createError(404));
 });
 
-// error handler
-app.use(function (err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
-});
-
-/**
- * Get port from environment and store in Express.
- */
-
 var port = process.env.PORT || '8081';
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
-
 var server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
 
 server.listen(port);
 

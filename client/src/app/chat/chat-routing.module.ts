@@ -1,13 +1,13 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {ChatComponent} from "./chat.component";
+import { ChatComponent } from './chat.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path: 'chat', component: ChatComponent}
+  { path: 'massages', component: ChatComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ChatRoutingModule {}
+export class ChatRoutingModule { }

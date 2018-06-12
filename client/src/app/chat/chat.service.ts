@@ -1,9 +1,11 @@
-import {Injectable} from '@angular/core';
-import {Http, Response, RequestOptions} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http, Response, RequestOptions } from '@angular/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ChatService {
-  private HOST_URL = 'http://localhost:8081/chat';
+  private HOST_URL = 'http://localhost:8081/massages';
   private CHAT_URL = '/massages';
 
   constructor(private http: Http) {

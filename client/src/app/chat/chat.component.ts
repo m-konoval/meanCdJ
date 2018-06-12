@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ChatService} from "./chat.service";
-import {ChatMassage} from "./chat.model";
+import { Component, OnInit } from '@angular/core';
+import { ChatService } from './chat.service';
+import { ChatMassage } from './chat.model';
 
 @Component({
   selector: 'app-chat',
@@ -15,13 +15,14 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getChat();
   }
 
   getChat() {
     this.chatService.getMassages().subscribe((response) => {
       this.chatMassages = response.json();
     }, (error) => {
-      console.log('Error', error);
+      console.error('Error', error);
     });
   }
 

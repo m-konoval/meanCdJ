@@ -1,20 +1,23 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {MatToolbarModule, MatCardModule, MatInputModule, MatFormFieldModule, MatButtonModule}
-  from "@angular/material";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { MatToolbarModule,
+  MatCardModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatButtonModule } from '@angular/material';
 
-import {ReactiveFormsModule} from "@angular/forms";
-import {RouterModule} from "@angular/router";
-import {HttpClientModule} from '@angular/common/http';
-import {HttpModule} from "@angular/http";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {AppRoutingModule} from "./app-routing.module";
-import {ChatRoutingModule} from "./chat/chat-routing.module";
+import { AppRoutingModule } from './app-routing.module';
+import { ChatRoutingModule } from './chat/chat-routing.module';
 
-import {AppComponent} from './app.component';
-import {AuthComponent} from './auth/auth.component';
-import {ChatComponent} from "./chat/chat.component";
+import { AppComponent } from './app.component';
+import { AuthComponent } from './auth/auth.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -36,5 +39,4 @@ import {ChatComponent} from "./chat/chat.component";
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}
