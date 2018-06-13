@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {FormControl} from "@angular/forms";
-import {Router} from '@angular/router';
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -12,7 +12,7 @@ export class AuthComponent {
 
   public nameControl: FormControl = new FormControl();
 
-  constructor( private router: Router) {}
+  constructor(private router: Router) { }
 
   public login() {
     localStorage.setItem('user_name', this.nameControl.value);

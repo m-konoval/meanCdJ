@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, RequestOptions } from '@angular/http';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,14 @@ export class ChatService {
   }
 
   public sendMassage(massage: any) {
-    return this.http.post(this.HOST_URL, massage);
+    const header = new Headers();
+          header.set('Content-type', 'application/json');
+
+    const requestOprions = new RequestOptions({
+      headers: header
+    });
+
+    return this.http.post(this.HOST_URL, massage, requestOprions);
   }
 
 }

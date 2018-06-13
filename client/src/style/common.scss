@@ -1,0 +1,26 @@
+._row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+._col {
+    display: flex;
+    flex-direction: column;
+}
+
+._to-right {
+    margin-left: auto;
+}
+
+._to-left {
+    margin-right: auto;
+}
+
+._to-top {
+    margin-bottom: auto;
+}
+
+._to-bottom {
+    margin-top: auto;
+}

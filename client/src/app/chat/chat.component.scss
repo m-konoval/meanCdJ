@@ -1,15 +1,33 @@
 .chat {
-  width: 700px;
-  display: flex;
-  flex-direction: column;
-  margin: 15px auto 0;
+
+  &__wrapper {
+    width: 700px;
+    margin: 15px auto 0;
+  }
+
+  &__layout {
+    display: flex;
+
+    & + & {
+      margin-top: 10px;
+    }
+  }
 
   &__item {
-    padding: 10px 20px;
-    border: 1px solid lightgoldenrodyellow;
+    padding: 5px 20px;
+    border: 1px solid lightslategrey;
 
     & + & {
       margin-top: 5px;
     }
   }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    cursor: pointer;
+  }
 }
+
