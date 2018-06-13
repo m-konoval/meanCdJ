@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-const MassageSchema = new mongoose.scale({
+const MassageSchema = new mongoose.Schema({
     userName: String,
     massage: String,
     created: {

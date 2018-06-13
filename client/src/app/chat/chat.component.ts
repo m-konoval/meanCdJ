@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChatService } from './chat.service';
 import { ChatMassage } from './chat.model';
@@ -11,7 +11,10 @@ import { ChatMassage } from './chat.model';
 export class ChatComponent implements OnInit {
 
   public chatMassages: ChatMassage[] = [];
-  public massageControl: FormControl = new FormControl();
+  public massageForm: FormGroup = new FormGroup({
+    massageControl: new FormControl()
+  });
+
   private timer;
 
   constructor(private chatService: ChatService) {
@@ -40,12 +43,11 @@ export class ChatComponent implements OnInit {
   public sendMassage() {
     const massage = new ChatMassage();
     massage.userName = localStorage.getItem('user_name');
-    massage.massage = this.massageControl.value;
+    massage.massage = this.massageForm.controls.massageControl.value;
 
     this.chatService.sendMassage(massage).subscribe(() => {
       this.getChat();
-      this.massageControl.setValue(' ');
+      this.massageForm.reset();
     });
   }
-
 }
