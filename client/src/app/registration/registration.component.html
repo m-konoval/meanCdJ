@@ -1,44 +1,43 @@
 <div class="_center">
   <mat-card class="registration__layout">
-      <form [formGroup]='registrationForm'
-            (submit)='registrationSubmit()'
-            class="_col">
-          <mat-form-field>
+      <form [formGroup]='regForm'
+            (submit)='singIn()'
+            class="registration__form _row">
+          <mat-form-field class="registration__item">
             <input type="text"
               required
               placeholder="Enter your name ..."
               matInput
-              formControlName="userNameControl">
+              formControlName="userName">
           </mat-form-field>
 
-          <mat-form-field>
+          <mat-form-field class="registration__item">
             <input type="text"
-              required
               placeholder="Enter your E-mail ..."
               matInput
-              formControlName="userEmailControl">
+              formControlName="userEmail">
           </mat-form-field>
 
-          <mat-form-field>
+          <mat-form-field class="registration__item">
             <input type="password"
               required
               placeholder="Enter your password ..."
               matInput
-              formControlName="userPasswordControl">
+              formControlName="userPassword">
           </mat-form-field>
 
-          <mat-form-field>
+          <mat-form-field class="registration__item">
             <input type="password"
               required
               placeholder="Repeat your password ..."
               matInput
-              formControlName="checkPasswodControl">
+              formControlName="checkPasswod">
           </mat-form-field>
 
           <button class="registration__button _row"
             mat-button
-            [disabled]="registrationForm.invalid">
-              <span>Registration</span>
+            [disabled]="regForm.invalid">
+              <span class="registration__button-text">Sing in</span>
               <i class="material-icons">send</i>
           </button>
       </form>

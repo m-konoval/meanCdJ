@@ -7,17 +7,17 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-  public registrationForm: FormGroup = new FormGroup({
-    userNameControl: new FormControl(),
-    userEmailControl: new FormControl(),
-    userPasswordControl: new FormControl(),
-    checkPasswodControl: new FormControl(),
+  public regForm: FormGroup = new FormGroup({
+    userName: new FormControl(),
+    userEmail: new FormControl(),
+    userPassword: new FormControl(),
+    checkPasswod: new FormControl(),
   });
 
   constructor() {}
   ngOnInit() {}
 
-  public registrationSubmit() {
-    console.log(this.registrationForm.controls);
+  public singIn() {
+    console.log(this.regForm.controls);
   }
 }

@@ -1,0 +1,29 @@
+.registration {
+    &__form {
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        width: 300px;
+
+        &:nth-child(even) {
+            margin-left: auto;
+        }
+    }
+
+    &__button {
+        background-color: #F0F4C3;
+        margin: 15px auto 0;
+        border: 1px solid #B39DDB;
+        color: #4A148C;
+
+        &:disabled {
+            background-color: #EFEBE9;
+            border-color: #E0E0E0;
+        }
+
+        &-text {
+            margin-right: 10px;
+        }
+    }
+}
