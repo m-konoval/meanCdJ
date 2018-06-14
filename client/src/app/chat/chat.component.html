@@ -2,9 +2,9 @@
 
   <mat-card *ngIf="chatMassages.length > 0" class="chat__layout _col">
     <div class="chat__item _col" *ngFor="let massage of chatMassages">
-      <span class="chat__item-name">{{massage.userName}}</span><br>
-      <span class="chat__item-massage">{{massage.massage}}</span><br>
-      <span class="chat__item-date">{{massage.created | date: 'short'}}</span>
+      <span class="chat__item-name">{{massage.userName}}</span>
+      <span class="chat__item-massage">{{massage.massage}}</span>
+      <span class="chat__item-date _to-right">{{massage.created | date: 'short'}}</span>
     </div>
   </mat-card>
 

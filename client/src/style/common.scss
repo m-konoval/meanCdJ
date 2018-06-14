@@ -1,3 +1,12 @@
+* {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
 ._row {
     display: flex;
     flex-direction: row;
