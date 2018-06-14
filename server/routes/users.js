@@ -19,7 +19,6 @@ router.get('/', function (req, res, next) {
 
 });
 
-
 /* GET user by id. */
 router.get('/:id', function (req, res, next) {
 
