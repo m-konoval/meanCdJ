@@ -4,8 +4,9 @@ var mongouse = require('mongoose');
 var User = require('../models/User.js');
 
 
+
 /* ----------- GET ----------- */
-/* GET users list. */
+// GET users list.
 router.get('/', function (req, res, next) {
 
     User
@@ -19,7 +20,7 @@ router.get('/', function (req, res, next) {
 
 });
 
-/* GET user by id. */
+// GET user by id.
 router.get('/:id', function (req, res, next) {
 
     User
@@ -34,8 +35,9 @@ router.get('/:id', function (req, res, next) {
 });
 
 
+
 /* ----------- POST ----------- */
-/* POST user create */
+// POST user create
 router.post('/', function (req, res, next) {
 
     User.create(req.body, function(err, user) {
@@ -48,8 +50,9 @@ router.post('/', function (req, res, next) {
 });
 
 
+
 /* ----------- PUT ----------- */
-/* PUT user update */
+// PUT user update
 router.put('/', function (req, res, next) {
 
     User.findByIdAndUpdate(req.body, function(err, user) {
@@ -62,5 +65,6 @@ router.put('/', function (req, res, next) {
 });
 
 
-/* Export */
+
+/* ----------- Export ----------- */
 module.exports = router;

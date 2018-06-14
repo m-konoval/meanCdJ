@@ -4,7 +4,9 @@ var mongouse = require('mongoose');
 var Massage = require('../models/Massage.js');
 
 
-/* GET users listing. */
+
+/* ----------- GET ----------- */
+// GET users listing
 router.get('/', function (req, res, next) {
 
     Massage
@@ -19,7 +21,9 @@ router.get('/', function (req, res, next) {
 });
 
 
-/* POST massage */
+
+/* ----------- POST ----------- */
+// POST massage
 router.post('/', function (req, res, next) {
 
     Massage.create(req.body, function(err, massage) {
@@ -32,5 +36,6 @@ router.post('/', function (req, res, next) {
 });
 
 
-/* Export */
+
+/* ----------- Export ----------- */
 module.exports = router;

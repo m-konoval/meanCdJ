@@ -1,5 +1,5 @@
 import { FormControl, FormGroup } from '@angular/forms';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChatService } from './chat.service';
 import { ChatMassage } from './chat.model';
 
@@ -22,15 +22,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.getChat();
-
-    // this.timer = setInterval(() => {
-    //   this.getChat();
-    // }, 10000);
   }
-
-  // ngOnDestroy() {
-  //   clearTimeout(this.timer);
-  // }
 
   getChat() {
     this.chatService.getMassages().subscribe((response) => {
