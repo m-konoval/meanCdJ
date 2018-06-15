@@ -30,7 +30,7 @@ router.post('/', function (req, res, next) {
         res
             .set('Content-type', 'application/json')
             .status(200)
-            .send('end');
+            .send();
     });
 
 });
@@ -45,7 +45,7 @@ router.delete('/', function (req, res, next) {
         res
             .set('Content-type', 'application/json')
             .status(200)
-            .send('end');
+            .send();
     });
 
 });

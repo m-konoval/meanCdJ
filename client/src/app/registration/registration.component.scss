@@ -1,14 +1,8 @@
 .registration {
-    &__form {
-        flex-wrap: wrap;
-    }
 
     &__item {
-        width: 300px;
-
-        &:nth-child(even) {
-            margin-left: auto;
-        }
+        width: 400px;
+        margin: 0 auto;
     }
 
     &__button {
@@ -19,7 +13,7 @@
 
         &:disabled {
             background-color: #EFEBE9;
-            border-color: #E0E0E0;
+            border-color: transparent;
         }
 
         &-text {

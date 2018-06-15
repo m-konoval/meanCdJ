@@ -1,36 +1,35 @@
+import { RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class ChatService {
-  private HOST_URL = 'http://localhost:8081/massages';
-  private CHAT_URL = '/massages';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: Http) {
-  }
+  private HOST_URL = 'http://localhost:8081/massages';
+
 
   public getMassages() {
     return this.http.get(this.HOST_URL);
   }
 
+
   public sendMassage(massage: any) {
-    const header = new Headers();
-          header.set('Content-type', 'application/json');
+    const options = {
+      headers: new HttpHeaders({'Content-type': 'application/json'})
+    };
 
-    const requestOprions = new RequestOptions({
-      headers: header
-    });
-
-    return this.http.post(this.HOST_URL, massage, requestOprions);
+    return this.http.post(this.HOST_URL, massage, options);
   }
 
-  public deleteMassage (massage: any) {
-    const requestOprions = new RequestOptions({
-      headers: new Headers({'Content-type': 'application/json'}),
-      body: massage
-    });
 
-    return this.http.delete(this.HOST_URL, requestOprions);
+  public deleteMassage (massage: any) {
+    const options = {
+      headers: new HttpHeaders({'Content-type': 'application/json'}),
+      body: massage
+    };
+
+    return this.http.delete(this.HOST_URL, options);
   }
 
 }

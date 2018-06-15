@@ -11,7 +11,7 @@ import { ChatMassage } from './chat.model';
 export class ChatComponent implements OnInit {
   constructor(private chatService: ChatService) {}
 
-  public chatMassages: ChatMassage[] = [];
+  public chatMassages: any = [];
   public massageForm: FormGroup = new FormGroup({
     massageControl: new FormControl()
   });
@@ -24,7 +24,7 @@ export class ChatComponent implements OnInit {
 
   public getChat() {
     this.chatService.getMassages().subscribe((response) => {
-      this.chatMassages = response.json();
+      this.chatMassages = response;
     }, (error) => {
       console.error('Error', error);
     });

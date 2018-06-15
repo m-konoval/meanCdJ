@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { RegistrationService } from './registration.service';
 
 @Component({
   selector: 'app-registration',
@@ -7,14 +8,14 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
+  constructor( private regService: RegistrationService ) {}
+
   public regForm: FormGroup = new FormGroup({
     userName: new FormControl(),
     userEmail: new FormControl(),
     userPassword: new FormControl(),
     checkPasswod: new FormControl(),
   });
-
-  constructor() {}
   ngOnInit() {}
 
   public singIn() {

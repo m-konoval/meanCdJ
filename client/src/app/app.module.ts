@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RegistrationModule } from './registration/registration.module';
@@ -20,7 +19,6 @@ import { AuthComponent } from './auth/auth.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
     HttpClientModule,
     RouterModule,
     ChatModule,
