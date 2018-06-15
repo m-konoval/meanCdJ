@@ -5,9 +5,13 @@
       <span class="chat__item-name">{{massage.userName}}</span>
       <span class="chat__item-massage">{{massage.massage}}</span>
       <span class="chat__item-date _to-right">{{massage.created | date: 'short'}}</span>
+
+      <span class="chat__item-close _row" (click)="delete(massage)">
+        <span>Remove</span>
+        <i class="chat__item-close-icon material-icons">delete</i>
+      </span>
     </div>
   </mat-card>
-
 
   <mat-card class="chat__layout">
       <form [formGroup]='massageForm' (submit)='sendMassage()' class="_row">

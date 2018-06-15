@@ -37,5 +37,20 @@ router.post('/', function (req, res, next) {
 
 
 
+/* ----------- DELETE ----------- */
+// DELETE massage
+router.delete('/', function (req, res, next) {
+
+    Massage.deleteOne(req.body, function(err, massage) {
+        res
+            .set('Content-type', 'application/json')
+            .status(200)
+            .send('end');
+    });
+
+});
+
+
+
 /* ----------- Export ----------- */
 module.exports = router;

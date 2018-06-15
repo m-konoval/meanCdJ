@@ -19,5 +19,6 @@ export class RegistrationComponent implements OnInit {
 
   public singIn() {
     console.log(this.regForm.controls);
+    this.regForm.reset();
   }
 }

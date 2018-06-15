@@ -9,28 +9,27 @@ import { ChatMassage } from './chat.model';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
+  constructor(private chatService: ChatService) {}
 
   public chatMassages: ChatMassage[] = [];
   public massageForm: FormGroup = new FormGroup({
     massageControl: new FormControl()
   });
 
-  private timer;
-
-  constructor(private chatService: ChatService) {
-  }
 
   ngOnInit() {
     this.getChat();
   }
 
-  getChat() {
+
+  public getChat() {
     this.chatService.getMassages().subscribe((response) => {
       this.chatMassages = response.json();
     }, (error) => {
       console.error('Error', error);
     });
   }
+
 
   public sendMassage() {
     const massage = new ChatMassage();
@@ -40,6 +39,13 @@ export class ChatComponent implements OnInit {
     this.chatService.sendMassage(massage).subscribe(() => {
       this.getChat();
       this.massageForm.reset();
+    });
+  }
+
+
+  public delete(massage) {
+    this.chatService.deleteMassage(massage).subscribe(() => {
+      this.getChat();
     });
   }
 }

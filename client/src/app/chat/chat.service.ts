@@ -24,4 +24,13 @@ export class ChatService {
     return this.http.post(this.HOST_URL, massage, requestOprions);
   }
 
+  public deleteMassage (massage: any) {
+    const requestOprions = new RequestOptions({
+      headers: new Headers({'Content-type': 'application/json'}),
+      body: massage
+    });
+
+    return this.http.delete(this.HOST_URL, requestOprions);
+  }
+
 }
