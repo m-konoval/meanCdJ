@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 const MassageSchema = new mongoose.Schema({
-    userName: String,
+    userId: mongoose.Schema.Types.ObjectId,
     massage: String,
     created: {
         type: Date,

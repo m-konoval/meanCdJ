@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './../shared/shared.module';
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatService } from './chat.service';
@@ -17,4 +16,4 @@ import { ChatComponent } from './chat.component';
   providers: [ChatService],
   declarations: [ChatComponent]
 })
-export class ChatModule { }
+export class ChatModule {}

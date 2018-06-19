@@ -2,17 +2,21 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
+import { UserModel } from './user.model';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
+
 export class AuthComponent {
   constructor(
     private router: Router,
     private authService: AuthService
   ) {}
+
+  private user: UserModel;
 
   public loginForm: FormGroup = new FormGroup({
     userName: new FormControl(),
@@ -22,8 +26,10 @@ export class AuthComponent {
 
   public login() {
     this.authService.authorize(this.loginForm.value).subscribe( (user) => {
-      localStorage.setItem('userName', user.userName);
-      this.router.navigate(['/']);
+      this.user = user;
+
+      localStorage.setItem('user', JSON.stringify(this.user));
+      this.router.navigate(['/chat']);
     });
   }
 
@@ -31,4 +37,5 @@ export class AuthComponent {
   public goReg() {
     this.router.navigate(['/registration']);
   }
+
 } // AuthComponent

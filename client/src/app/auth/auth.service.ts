@@ -1,20 +1,22 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserModel } from './../shared/user.model';
+import { UserModel } from '../auth/user.model';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
+
 export class AuthService {
-  constructor( private http: HttpClient ) {}
+    constructor(private http: HttpClient) { }
 
-  private HOST_URL = 'http://localhost:8081/authorize';
+    private HOST_URL = 'http://localhost:8081/authorize';
 
-  public authorize(user) {
-    const options = {
-      headers: new HttpHeaders({'Content-type': 'application/json'})
-    };
+    public authorize(user) {
+        const options = {
+            headers: new HttpHeaders({ 'Content-type': 'application/json' })
+        };
 
-    return this.http.post<UserModel>(this.HOST_URL, user, options);
-  }
-}
+        return this.http.post<UserModel>(this.HOST_URL, user, options);
+    }
+
+} // AuthService

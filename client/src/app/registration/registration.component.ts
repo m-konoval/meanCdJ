@@ -7,6 +7,7 @@ import { RegistrationService } from './registration.service';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
+
 export class RegistrationComponent implements OnInit {
   constructor( private regService: RegistrationService ) {}
 
@@ -17,9 +18,11 @@ export class RegistrationComponent implements OnInit {
     userPassword: new FormControl(),
     checkPasswod: new FormControl(),
   });
+
   ngOnInit() {
     this.getUsers();
   }
+
 
   public getUsers() {
     this.regService.getUser().subscribe( (response) => {
@@ -27,10 +30,12 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
+
   public singIn() {
     this.regService.regUser(this.regForm.value).subscribe( () => {
       this.getUsers();
     });
     this.regForm.reset();
   }
-}
+
+} // RegistrationComponent

@@ -9,9 +9,11 @@ export class RegistrationService {
 
   private HOST_URL = 'http://localhost:8081/users';
 
+
   public getUser() {
     return this.http.get(this.HOST_URL);
   }
+
 
   public regUser(user: any) {
     const options = {
@@ -20,4 +22,5 @@ export class RegistrationService {
 
     return this.http.post(this.HOST_URL, user, options);
   }
-}
+
+} // RegistrationService

@@ -1,5 +1,5 @@
 export class ChatMassage {
-    userName: string;
+    userId: string;
     massage: string;
     created?: string;
 }

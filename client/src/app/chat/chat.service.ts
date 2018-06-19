@@ -1,12 +1,13 @@
-import { RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ChatMassage } from '../chat/chat.model';
 
 @Injectable()
 export class ChatService {
   constructor(private http: HttpClient) {}
 
-  private HOST_URL = 'http://localhost:8081/massages';
+  private HOST_URL      = 'http://localhost:8081/massages';
+  private CONTENT_TYPE  = {'Content-type': 'application/json'};
 
 
   public getMassages() {
@@ -16,20 +17,20 @@ export class ChatService {
 
   public sendMassage(massage: any) {
     const options = {
-      headers: new HttpHeaders({'Content-type': 'application/json'})
+      headers: new HttpHeaders(this.CONTENT_TYPE)
     };
 
-    return this.http.post(this.HOST_URL, massage, options);
+    return this.http.post<ChatMassage>(this.HOST_URL, massage, options);
   }
 
 
   public deleteMassage (massage: any) {
     const options = {
-      headers: new HttpHeaders({'Content-type': 'application/json'}),
+      headers: new HttpHeaders(this.CONTENT_TYPE),
       body: massage
     };
 
     return this.http.delete(this.HOST_URL, options);
   }
 
-}
+} // ChatService

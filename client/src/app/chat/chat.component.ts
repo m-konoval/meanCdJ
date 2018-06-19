@@ -1,7 +1,7 @@
 import { FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from './chat.service';
-import { ChatMassage } from './chat.model';
+import { ChatMassage } from '../chat/chat.model';
 
 @Component({
   selector: 'app-chat',
@@ -33,7 +33,9 @@ export class ChatComponent implements OnInit {
 
   public sendMassage() {
     const massage = new ChatMassage();
-    massage.userName = localStorage.getItem('user_name');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    massage.userId = user._id;
     massage.massage = this.massageForm.controls.massageControl.value;
 
     this.chatService.sendMassage(massage).subscribe(() => {
@@ -48,4 +50,5 @@ export class ChatComponent implements OnInit {
       this.getChat();
     });
   }
-}
+
+} // ChatComponent
