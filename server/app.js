@@ -11,9 +11,9 @@ var http            = require('http');
 var mongoose        = require('mongoose');
 
 // routes import
-var index           = require('./routes/index');
-var massages        = require('./routes/massages');
-var users           = require('./routes/users');
+var massages = require('./routes/massages');
+var users    = require('./routes/users');
+var auth     = require('./routes/authorize');
 
 
 
@@ -44,11 +44,11 @@ app.all('/*', function (req, res, next) {
 
 
 /* ----------- init ROUTES ----------- */
-app.use('/', index);
 app.use('/massages', massages);
 app.use('/users', users);
+app.use('/authorize', auth);
 
-// catch 404 
+// catch 404
 app.use(function (req, res, next) {
     next(createError(404));
 });

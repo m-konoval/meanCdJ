@@ -1,20 +1,27 @@
 .auth {
-  &-wrapper {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+
+  &__form {
+    width: 400px;
   }
 
-  &-form {
-    display: flex;
-    width: 700px;
-    margin: 10px;
+  &__field {
 
-    &__button {
-      background: cornflowerblue;
-      height: 40px;
-      padding-left: 25px;
-      padding-right: 25px;
-      margin-left: auto;
+    & + & {
+      margin-top: 10px;
+    }
+  }
+
+  &__button {
+    background: cornflowerblue;
+    height: 40px;
+    margin-left: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    & + & {
+      margin-left: 20px;
     }
   }
 }

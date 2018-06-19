@@ -1,17 +1,36 @@
-<div class="_center">
-  <mat-card class="auth-form">
-    <mat-form-field>
+<mat-card class="auth _center">
+  <form class="auth__form _col"
+        [formGroup]="loginForm"
+        (submit)="login()">
+
+    <mat-form-field class="auth__field">
       <input type="text"
              required
-             placeholder="Enter name ..."
+             placeholder="Name ..."
              matInput
-             [formControl]="nameControl">
+             formControlName="userName">
     </mat-form-field>
 
-    <button mat-button class="auth-form__button"
-            [disabled]="nameControl.invalid"
-            (click)="login()">
+    <mat-form-field class="auth__field">
+      <input type="password"
+             required
+             placeholder="Password ..."
+             matInput
+             formControlName="password">
+    </mat-form-field>
+
+    <div class="_row">
+      <button mat-button class="auth__button"
+              type="submit"
+              [disabled]="loginForm.invalid">
         Log in
-    </button>
-  </mat-card>
-</div>
+      </button>
+
+      <button mat-button class="auth__button"
+              type="button"
+              (click)="goReg()">
+        Regisrtation
+      </button>
+    </div>
+  </form>
+</mat-card>

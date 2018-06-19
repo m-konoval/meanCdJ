@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -8,14 +9,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent {
-  CHAT_URL = '/massages';
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
-  public nameControl: FormControl = new FormControl();
+  public loginForm: FormGroup = new FormGroup({
+    userName: new FormControl(),
+    password: new FormControl()
+  });
 
-  constructor(private router: Router) { }
 
   public login() {
-    localStorage.setItem('user_name', this.nameControl.value);
-    this.router.navigate([this.CHAT_URL]);
+    this.authService.authorize(this.loginForm.value).subscribe( (user) => {
+      localStorage.setItem('userName', user.userName);
+      this.router.navigate(['/']);
+    });
   }
-}
+
+
+  public goReg() {
+    this.router.navigate(['/registration']);
+  }
+} // AuthComponent

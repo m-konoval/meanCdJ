@@ -6,7 +6,7 @@ var Massage = require('../models/Massage.js');
 
 
 /* ----------- GET ----------- */
-// GET users listing
+// GET massages list
 router.get('/', function (req, res, next) {
 
     Massage
