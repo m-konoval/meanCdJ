@@ -7,10 +7,13 @@ import { RegistrationModule } from './registration/registration.module';
 import { ChatModule } from './chat/chat.module';
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,8 @@ import { AppComponent } from './app.component';
     ChatModule,
     AuthModule,
     RegistrationModule,
-    SharedModule
+    SharedModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
