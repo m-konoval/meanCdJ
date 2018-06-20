@@ -1,6 +1,13 @@
-<button mat-button [matMenuTriggerFor]="menu">Menu</button>
-<mat-menu #menu="matMenu">
-  <a mat-menu-item routerLink='/'>Login</a>
-  <a mat-menu-item routerLink='/chat'>Chat</a>
-  <a mat-menu-item routerLink='/registration'>Regisrtation</a>
+<button class="nav__btn" mat-button [matMenuTriggerFor]="menu">Menu</button>
+
+<mat-menu #menu="matMenu" class="nav__list">
+  <li class="nav__list-item" mat-menu-item routerLinkActive="nav__link_active" [routerLinkActiveOptions]="{exact: true}">
+      <a class="nav__link" routerLink='/'>Login</a>
+  </li>
+  <li class="nav__list-item" mat-menu-item routerLinkActive="nav__link_active">
+      <a class="nav__link" routerLink='/registration'>Regisrtation</a>
+  </li>
+  <li class="nav__list-item" mat-menu-item routerLinkActive="nav__link_active">
+      <a class="nav__link" routerLink='/chat'>Chat</a>
+  </li>
 </mat-menu>
