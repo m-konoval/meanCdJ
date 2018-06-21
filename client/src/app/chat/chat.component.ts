@@ -1,3 +1,4 @@
+import { SocketService } from './socket.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from './chat.service';
@@ -6,11 +7,15 @@ import { ChatMassage } from '../chat/chat.model';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss']
+  styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
-  constructor(private chatService: ChatService) {}
+  constructor(
+    private chatService: ChatService,
+    private socket: SocketService
+  ) {}
 
+  public msg: string;
   public chatMassages: any = [];
   public massageForm: FormGroup = new FormGroup({
     massageControl: new FormControl()
@@ -19,6 +24,17 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.getChat();
+
+
+    this.socket
+      .getMessage().subscribe(msg => {
+        this.msg = '1st ' + msg;
+      });
+  }
+
+
+  sendMsg(msg) {
+    this.socket.sendMessage(msg);
   }
 
 

@@ -1,6 +1,6 @@
 
 /* ----------- DEPENDENCIES ----------- */
-require('long-stack-traces');
+
 
 var createError     = require('http-errors');
 var express         = require('express');
@@ -17,8 +17,11 @@ var auth     = require('./routes/authorize');
 
 
 
-/* ----------- init APP ----------- */
-var app = express();
+/* ----------- init APP & SERVER ----------- */
+var app     = express();
+var port    = process.env.PORT || '8081';
+var server  = http.createServer(app);
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -55,12 +58,19 @@ app.use(function (req, res, next) {
 
 
 
-/* ----------- SERVER & PORT ----------- */
-var port    = process.env.PORT || '8081';
-var server  = http.createServer(app);
+/* ----------- init SOCKET IO ----------- */
+var io = require('socket.io')(server);
 
-    app.set('port', port);
-    server.listen(port);
+io.on('connection', function (socket) {
+
+    console.log('connect ss');
+
+    socket.emit('msg', { msg: 'Welcome bro!' });
+
+    socket.on('msg',function(msg){
+        socket.emit('msg', { msg: 'you sent : ' + msg });
+    })
+});
 
 
 
@@ -72,6 +82,12 @@ mongoose.connect(conctionString)
     .then(() => console.log('OK'))
     .catch((err) => console.log('Error: ' + err));
 /* ----------- end TEST ----------- */
+
+
+
+/* ----------- SERVER & PORT ----------- */
+app.set('port', port);
+server.listen(port);
 
 
 
