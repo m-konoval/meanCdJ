@@ -24,7 +24,7 @@ router.get('/', function (req, res, next) {
 router.get('/:id', function (req, res, next) {
 
     User
-        .find({'_id': req.params.id})
+        .find({ '_id': req.params.id })
         .exec(function (err, user) {
             res
                 .set('Content-type', 'application/json')
@@ -40,11 +40,11 @@ router.get('/:id', function (req, res, next) {
 // POST user create
 router.post('/', function (req, res, next) {
 
-    User.create(req.body, function(err, user) {
+    User.create(req.body, function (err, user) {
         res
             .set('Content-type', 'application/json')
             .status(200)
-            .send();
+            .json({ response: 'ok' });
     });
 
 });
@@ -55,11 +55,11 @@ router.post('/', function (req, res, next) {
 // PUT user update
 router.put('/', function (req, res, next) {
 
-    User.findByIdAndUpdate(req.body, function(err, user) {
+    User.findByIdAndUpdate(req.body, function (err, user) {
         res
             .set('Content-type', 'application/json')
             .status(200)
-            .send();
+            .json({ response: 'Ok' });
     });
 
 });

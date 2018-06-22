@@ -5,37 +5,42 @@ import { AuthService } from './auth.service';
 import { UserModel } from './user.model';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+    selector: 'app-auth',
+    templateUrl: './auth.component.html',
+    styleUrls: ['./auth.component.scss']
 })
 
 export class AuthComponent {
-  constructor(
-    private router: Router,
-    private authService: AuthService
-  ) {}
 
-  private user: UserModel;
+    // defines
+    // *************************************
+    private user: UserModel;
 
-  public loginForm: FormGroup = new FormGroup({
-    userName: new FormControl(),
-    password: new FormControl()
-  });
-
-
-  public login() {
-    this.authService.authorize(this.loginForm.value).subscribe( (user) => {
-      this.user = user;
-
-      localStorage.setItem('user', JSON.stringify(this.user));
-      this.router.navigate(['/chat']);
+    public loginForm: FormGroup = new FormGroup({
+        userName: new FormControl(),
+        password: new FormControl()
     });
-  }
+
+    constructor(
+        private router: Router,
+        private authService: AuthService
+    ) { }
 
 
-  public goReg() {
-    this.router.navigate(['/registration']);
-  }
+    // methods
+    // *************************************
+    public login() {
+        this.authService.authorize(this.loginForm.value).subscribe((user) => {
+            this.user = user;
+
+            localStorage.setItem('user', JSON.stringify(this.user));
+            this.router.navigate(['/chat']);
+        });
+    }
+
+
+    public goReg() {
+        this.router.navigate(['/registration']);
+    }
 
 } // AuthComponent

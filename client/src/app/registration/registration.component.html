@@ -1,45 +1,41 @@
 <div class="_center">
-  <mat-card class="registration__layout">
-      <form [formGroup]='regForm'
-            (submit)='singIn()'
-            class="_col">
-          <mat-form-field class="registration__item">
-            <input type="text"
-              required
-              placeholder="Enter your name ..."
-              matInput
-              formControlName="userName">
-          </mat-form-field>
+    <mat-card class="registration__layout">
+        <form [formGroup]='regForm' (submit)='singIn()' class="_col">
+            <mat-form-field class="registration__item">
+                <input required matInput
+                    type="text"
+                    placeholder="Enter your name ..."
+                    formControlName="userName">
+            </mat-form-field>
 
-          <mat-form-field class="registration__item">
-            <input type="text"
-              placeholder="Enter your E-mail ..."
-              matInput
-              formControlName="userEmail">
-          </mat-form-field>
+            <mat-form-field class="registration__item">
+                <input matInput
+                    type="text"
+                    placeholder="Enter your E-mail ..."
+                    formControlName="userEmail">
+            </mat-form-field>
 
-          <mat-form-field class="registration__item">
-            <input type="password"
-              required
-              placeholder="Enter your password ..."
-              matInput
-              formControlName="userPassword">
-          </mat-form-field>
+            <mat-form-field class="registration__item">
+                <input required matInput
+                    type="password"
+                    placeholder="Enter your password ..."
+                    formControlName="userPassword">
+            </mat-form-field>
 
-          <mat-form-field class="registration__item">
-            <input type="password"
-              required
-              placeholder="Repeat your password ..."
-              matInput
-              formControlName="checkPasswod">
-          </mat-form-field>
+            <mat-form-field class="registration__item">
+                <input required matInput
+                    type="password"
+                    placeholder="Repeat your password ..."
+                    formControlName="checkPasswod">
+            </mat-form-field>
 
-          <button class="registration__button _row"
-            mat-button
-            [disabled]="regForm.invalid">
-              <span class="registration__button-text">Sing in</span>
-              <i class="material-icons">send</i>
-          </button>
-      </form>
-  </mat-card>
+            <button mat-button
+                class="registration__button _row"
+                [disabled]="regForm.invalid">
+
+                <span class="registration__button-text">Sing in</span>
+                <i class="material-icons">send</i>
+            </button>
+        </form>
+    </mat-card>
 </div>

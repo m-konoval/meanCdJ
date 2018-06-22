@@ -11,21 +11,21 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent,
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule,
-    ChatModule,
-    AuthModule,
-    RegistrationModule,
-    SharedModule,
-    MatMenuModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavigationComponent,
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        RouterModule,
+        ChatModule,
+        AuthModule,
+        RegistrationModule,
+        SharedModule,
+        MatMenuModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

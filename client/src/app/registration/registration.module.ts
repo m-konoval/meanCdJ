@@ -14,4 +14,4 @@ import { SharedModule } from '../shared/shared.module';
     declarations: [RegistrationComponent],
     providers: [RegistrationService]
 })
-export class RegistrationModule {}
+export class RegistrationModule { }

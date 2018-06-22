@@ -7,10 +7,16 @@ import { UserModel } from '../auth/user.model';
 })
 
 export class AuthService {
+
+    // defines
+    // *************************************
+    private HOST_URL = 'http://wsua-0657:8081/authorize';
+
     constructor(private http: HttpClient) { }
 
-    private HOST_URL = 'http://localhost:8081/authorize';
 
+    // methods
+    // *************************************
     public authorize(user) {
         const options = {
             headers: new HttpHeaders({ 'Content-type': 'application/json' })

@@ -26,11 +26,11 @@ router.get('/', function (req, res, next) {
 // POST massage
 router.post('/', function (req, res, next) {
 
-    Massage.create(req.body, function(err, massage) {
+    Massage.create(req.body, function (err, massage) {
         res
             .set('Content-type', 'application/json')
             .status(200)
-            .send();
+            .json({ response: 'Ok' });
     });
 
 });
@@ -41,11 +41,11 @@ router.post('/', function (req, res, next) {
 // DELETE massage
 router.delete('/', function (req, res, next) {
 
-    Massage.deleteOne(req.body, function(err, massage) {
+    Massage.deleteOne(req.body, function (err, massage) {
         res
             .set('Content-type', 'application/json')
             .status(200)
-            .send();
+            .json({ response: 'Ok' });
     });
 
 });

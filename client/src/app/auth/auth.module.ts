@@ -7,13 +7,13 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    SharedModule
-  ],
-  declarations: [AuthComponent],
-  providers: [AuthService, AuthGuard]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        SharedModule
+    ],
+    declarations: [AuthComponent],
+    providers: [AuthService, AuthGuard]
 })
 
-export class AuthModule {}
+export class AuthModule { }

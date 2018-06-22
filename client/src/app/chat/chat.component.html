@@ -1,33 +1,42 @@
 <div class="_center">
 
-  <mat-card *ngIf="chatMassages.length > 0" class="chat__layout _col">
-    <div class="chat__item _col" *ngFor="let massage of chatMassages">
-      <span class="chat__item-name">{{massage.userName}}</span>
-      <span class="chat__item-massage">{{massage.massage}}</span>
-      <span class="chat__item-date _to-right">{{massage.created | date: 'short'}}</span>
+    <mat-card *ngIf="chatMassages.length > 0" class="chat__layout _col">
+        <div class="chat__item _col" *ngFor="let massage of chatMassages">
+            <span class="chat__item-name">
+                {{massage.userName}}
+            </span>
+            <span class="chat__item-massage">
+                {{massage.massage}}
+            </span>
+            <span class="chat__item-date _to-right">
+                {{massage.created | date: 'short'}}
+            </span>
 
-      <span class="chat__item-close _row" (click)="delete(massage)">
-        <span>Remove</span>
-        <i class="chat__item-close-icon material-icons">delete</i>
-      </span>
-    </div>
-  </mat-card>
+            <span class="chat__item-close _row"
+                (click)="delete(massage)">
 
-  <mat-card class="chat__layout">
-      <form [formGroup]='massageForm' (submit)='sendMassage()' class="_row">
-          <mat-form-field>
-            <input type="text"
-                   required
-                   placeholder="Enter massage ..."
-                   matInput
-                   formControlName="massageControl">
-          </mat-form-field>
+                <span>Remove</span>
+                <i class="chat__item-close-icon material-icons">delete</i>
+            </span>
+        </div>
+    </mat-card>
 
-          <button class="chat__button" mat-mini-fab
-                  [disabled]="massageForm.invalid">
-                  <i class="material-icons">send</i>
-          </button>
-      </form>
-  </mat-card>
+    <mat-card class="chat__layout">
+        <form [formGroup]='massageForm' (submit)='sendMassage()' class="_row">
+            <mat-form-field>
+                <input required matInput
+                    type="text"
+                    placeholder="Enter massage ..."
+                    formControlName="massageControl">
+            </mat-form-field>
+
+            <button mat-mini-fab
+                class="chat__button"
+                [disabled]="massageForm.invalid">
+
+                <i class="material-icons">send</i>
+            </button>
+        </form>
+    </mat-card>
 
 </div>

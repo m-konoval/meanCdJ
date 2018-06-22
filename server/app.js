@@ -1,30 +1,28 @@
 
 /* ----------- DEPENDENCIES ----------- */
-
-
-var createError     = require('http-errors');
-var express         = require('express');
-var path            = require('path');
-var cookieParser    = require('cookie-parser');
-var logger          = require('morgan');
-var http            = require('http');
-var mongoose        = require('mongoose');
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var http = require('http');
+var mongoose = require('mongoose');
 
 // routes import
 var massages = require('./routes/massages');
-var users    = require('./routes/users');
-var auth     = require('./routes/authorize');
+var users = require('./routes/users');
+var auth = require('./routes/authorize');
 
 
 
 /* ----------- init APP & SERVER ----------- */
-var app     = express();
-var port    = process.env.PORT || '8081';
-var server  = http.createServer(app);
+var app = express();
+var port = process.env.PORT || '8081';
+var server = http.createServer(app);
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -35,14 +33,14 @@ app.all('/*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-type,Accept');
- 
-    if(req.method === 'OPTIONS') {
+
+    if (req.method === 'OPTIONS') {
         res.status(200).end();
     } else {
         next();
     }
- });
- /* ----------- HEADERS settings ----------- */
+});
+/* ----------- HEADERS settings ----------- */
 
 
 
@@ -62,14 +60,9 @@ app.use(function (req, res, next) {
 var io = require('socket.io')(server);
 
 io.on('connection', function (socket) {
-
-    console.log('connect ss');
-
-    socket.emit('msg', { msg: 'Welcome bro!' });
-
-    socket.on('msg',function(msg){
-        socket.emit('msg', { msg: 'you sent : ' + msg });
-    })
+    socket.on('send', function () {
+        io.emit('updateChat', true);
+    });
 });
 
 

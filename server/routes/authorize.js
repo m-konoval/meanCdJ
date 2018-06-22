@@ -10,7 +10,9 @@ var User = require('../models/User.js');
 router.post('/', function (req, res, next) {
 
     User
-        .findOne({'userName': req.body.userName})
+        .findOne(
+            { 'userName': req.body.userName }
+        )
         .exec(function (err, user) {
             res
                 .set('Content-type', 'application/json')
